@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let id = 0;
     const openWeatherKey = "6435a094b1838feb1771367559ced5f4";
     const newsKey = "da4b99413d7b47c8b7ce89892570c2ae";
+    let currentCity = "Wroclaw";
 
     // function getCityId() {
 
@@ -28,9 +29,30 @@ document.addEventListener("DOMContentLoaded", function () {
     //     console.log(id);
     //     return id;
     // }
+    function getCurrnetCity() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log(position);
+                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyDOf-EYPzKeJjQMVElHydfQbMj1X5ip5lg"; 
+                fetch(url)
+                .then(function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                response.json().then(function (data) {
+                    console.log(data);
+                });
+            })
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+            });
+        }
+    }
 
     function getWeather(cityName) {
-
         fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
             .then(function (response) {
                 if (response.status !== 200) {
@@ -50,27 +72,25 @@ document.addEventListener("DOMContentLoaded", function () {
     function getNews() {
         var req = new Request(`https://newsapi.org/v2/top-headlines?country=pl&apiKey=${newsKey}`);
         fetch(req)
-        .then(
-            function(response) {
-              if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                  response.status);
-                return;
-              }
-              response.json().then(function(data) {
-                let img = document.querySelectorAll('.news');
-                img[0].children[0].setAttribute("src", data.articles[0].urlToImage);
-                img[0].children[1].setAttribute("src", data.articles[1].urlToImage);
-                img[0].children[2].setAttribute("src", data.articles[2].urlToImage);
-              });
-            }
-          )
+            .then(
+                function (response) {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function (data) {
+                        let img = document.querySelectorAll('.news');
+                        img[0].children[0].setAttribute("src", data.articles[0].urlToImage);
+                        img[0].children[1].setAttribute("src", data.articles[1].urlToImage);
+                        img[0].children[2].setAttribute("src", data.articles[2].urlToImage);
+                    });
+                }
+            )
             .catch(function (err) {
                 console.log('Fetch Error :-S', err);
             });
     }
-
-
 
 
     document.querySelector('.search').addEventListener("submit", (e) => {
@@ -81,6 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
+    getCurrnetCity();
 
 })
