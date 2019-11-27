@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log(position);
-                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyDOf-EYPzKeJjQMVElHydfQbMj1X5ip5lg"; 
+                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key="; 
                 fetch(url)
                 .then(function (response) {
                 if (response.status !== 200) {
