@@ -32,31 +32,46 @@ document.addEventListener("DOMContentLoaded", function () {
     function getWeather(cityName) {
 
         fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data.list[0].main.temp);
+            .then(function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                response.json().then(function (data) {
+                    console.log(data.list[0].main.temp);
+                });
             })
-            .catch(err => {
-                console.log(err);
-            })
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
     }
 
     function getNews() {
-
         var req = new Request(`https://newsapi.org/v2/top-headlines?country=pl&apiKey=${newsKey}`);
         fetch(req)
-            .then((resp) => resp.json())
-            .then((data) => {
+        .then(
+            function(response) {
+              if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+              response.json().then(function(data) {
                 let img = document.querySelectorAll('.news');
                 img[0].children[0].setAttribute("src", data.articles[0].urlToImage);
                 img[0].children[1].setAttribute("src", data.articles[1].urlToImage);
                 img[0].children[2].setAttribute("src", data.articles[2].urlToImage);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
+              });
+            }
+          )
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
     }
+
+
+
 
     document.querySelector('.search').addEventListener("submit", (e) => {
         e.preventDefault();
@@ -65,5 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         getWeather(cityName);
     });
 
-  
+
+
+
 })
