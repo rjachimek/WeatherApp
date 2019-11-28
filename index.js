@@ -32,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function getCurrnetCity() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                console.log(position);
-                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key="; 
+                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyDjuFykfFmVZHNwMoQ2XJukoHlwCU7HJ6U"; 
                 fetch(url)
                 .then(function (response) {
                 if (response.status !== 200) {
@@ -42,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
                 response.json().then(function (data) {
-                    console.log(data);
+                   currentCity = data.results[0].address_components[1].short_name;
+                   console.log(currentCity);
                 });
             })
             .catch(function (err) {
