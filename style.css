@@ -1,0 +1,155 @@
+/*ustawienia ogólne-model pudełkowy*/
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: 'McLaren', cursive;
+    background: url("tlo.jpeg");
+    background-size: 100%;
+    background-attachment: fixed;
+}
+/*---------------MENU----------*/
+li, a {
+font-weight:500;
+font-size: 16px;
+color: white ;
+text-decoration:none;
+z-index:1000;
+}
+header{
+    display: flex; /*dopasowywanie położenia el po zmianie rozmiaru okna*/
+    justify-content:space-between;
+    align-items:center;
+    padding: 10px 10px;
+    background-color:#000000 ;
+}
+.logo{
+    cursor:pointer; /*znak łapki zamiast zwykłego kursora po najechaniu na obrazek*/
+    width: 5%;
+}
+.navbar{
+    list-style: none; /*brak kropek w menu*/
+    background-color:#000000 ;
+    /*position: fixed;*/
+   /* top:0;*/
+}
+.navbar li{
+    display:inline-block; /*orientacja pozioma menu*/
+    padding: 0px 20px; /*odstepy*/
+}
+/*---------------GALERIA DO NEWSÓW----------*/
+.slideshow{
+    margin:0 auto;  /*czy to potrzebne?*/
+    padding-top:50px;
+    height:700px;
+}
+.content{
+    margin: auto;
+    width: 190px;
+    perspective: 1000px;
+    position: relative;
+    padding-top:80px;
+}
+
+.content-carrousel{
+width: 100%;
+position: absolute;
+float:right;
+animation: rotar 15s infinite linear; 
+transform-style: preserve-3d;
+}
+/*---------------PO NAJECHANIU NA OBRAZEK----------*/
+.content-carrousel:hover{
+    animation-play-state: paused;
+    cursor: pointer;
+}
+/*---------------OBRAZEK----------*/
+.content-carrousel figure{
+    width: 100%;
+    height:120px;
+    border: 1px solid #4d444d;
+    overflow: hidden;
+    position: absolute;
+}
+/*---------------ROZŁOŻENIE OBRAZKÓW 3D----------*/
+.content-carrousel figure:nth-child(1){
+    transform:rotateY(0deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(2){
+    transform:rotateY(120deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(3){
+    transform:rotateY(240deg) translateZ(300px);
+}
+/*---------------CIENIOWANIE OBRAMOWANIA OBRAZKA----------*/
+.shadow{
+   position: absolute;
+   box-shadow: 0px 0px 20px 0px #000;
+   border-radius:2px; 
+}
+.content-carrousel img{
+    image-rendering: auto;
+    transition: all 300ms;
+    width: 100%;
+    height: 100%;
+}
+/*---------------ANIMACJA OBRAZKÓW W RAMCE----------*/
+.content-carrousel img:hover{
+    transform: scale(1.2);
+    transition: all 300ms;
+}
+/*---------------OBRÓT----------*/
+@keyframes rotar{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+/*---------------POLE WYSZUKIWANIA----------*/
+.search-box{
+position:absolute;
+top: 70%;
+left:30%;
+transform: translate (-50%, -50%);
+background: #66CDAA;
+height: 60px;
+border-radius: 60px;
+padding: 10px;
+}
+/*---------------ROZWIJALNY PASEK WYSZUKIWANIA----------*/
+.search-box:hover > .search-txt{
+width: 350px;
+padding: 0 6px;
+}
+/*---------------FONT AWESOME----------*/
+.search-btn{
+color: black;
+float:right;
+width:40px;
+height:40px;
+border-radius:50%;
+background: #66CDAA;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+/*---------------TEKST----------*/
+.search-txt{
+border:none;
+background: none;
+outline: none;
+float: left;
+padding: 10;
+color: white;
+font-size: 16px;
+transition: 0.4s;
+line-height: 40px;
+width:0px;
+}
+/*---------------STOPKA----------*/
+footer{ /*stopka*/
+    text-align: center;
+    font-size:8px;
+}
