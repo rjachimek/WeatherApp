@@ -140,6 +140,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 response.json().then(function (data) {
                     console.log(data.list[0].main.temp);
+                    weather.lat = data.city.coord.lat;
+                    weather.lon = data.city.coord.lon;
+                })
+                .then(function () {
+                    getWeather(weather.lat, weather.lon);
                 });
             })
             .catch(function (err) {
@@ -187,12 +192,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.search-box').addEventListener("submit", (e) => {
         e.preventDefault();
         let cityName = document.getElementById("searchResultCity").value;
-        console.log(cityName);//przykład
+        //console.log(cityName);//przykład
         getWeatherCityToday(cityName); //przykład
-        console.log(weather.lat, weather.lon)
-        //getWeather(weather.lat, weather.lon);
-        
-        //getWeather(50, 50);
     });}
 
     //Temperatura teraz
@@ -209,9 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 response.json().then(function (data) {
                     let temp = document.querySelector('.geo-btn');
                     temp.innerText = `${currentCity} ${data.list[0].main.temp}°C`
-                    weather.lat = data.city.coord.lat;
-                    weather.lon = data.city.coord.lon;
-                    console.log(weather.lat ,weather.lon)
                     //console.log(data.list[0].main.temp);
                 });
             })
