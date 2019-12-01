@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const weather = {
         date: [],
         description: [],
-        iconId: []
+        iconId: [],
+        lat: 10,
+        lon: 25
     };
 
     weather.temperature = {
@@ -56,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
         notificationElemnt.style.display = "block";
         notificationElemnt.innerHTML = `<p> ${error.message} </p>`;
     }
-
     // POBRANIE POGODY Z API
     function getWeather(latitude, longitude) {
         let api = `http://api.openweathermap.org/data/2.5/forecast?lang=pl&lat=${latitude}&lon=${longitude}&appid=${key}`;
@@ -69,7 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(function (data) {
                 for (let i = 0; i < 5; i++) {
-                    weather.date[i] = data.list[i * 8].dt_txt; // list[0] - 1szy dzien, list[8] - 2gi dzien, list[16] - 3eci dzien, list[24],list[32]
+                    let tempWeather = [];
+                    tempWeather[i] = data.list[i * 8].dt_txt; // list[0] - 1szy dzien, list[8] - 2gi dzien, list[16] - 3eci dzien, list[24],list[32]
+                    weather.date[i] = tempWeather[i].split(' '); // oddziela godzine od daty
                     weather.temperature.value[i] = Math.floor(data.list[i * 8].main.temp - KELVIN); 
                     weather.description[i] = data.list[i * 8].weather[0].description;
                     weather.iconId[i] = data.list[i * 8].weather[0].icon;
@@ -82,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // WYSWIETLANIE
     function displayWeather() {
         for (let i = 0; i < 5; i++) {
-            dateElement[i].innerHTML = weather.date[i];
+            dateElement[i].innerHTML = weather.date[i][0];
             iconElement[i].innerHTML = `<img src="./img/${weather.iconId[i]}.png"/>`;
             tempElement[i].innerHTML = `${weather.temperature.value[i]}°<span>C</span>`;
             descElement[i].innerHTML = weather.description[i];
@@ -116,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         response.json().then(function (data) {
                             // działa tylko na adresie githun pages ze względów bezpieczenstwa
                             // currentCity = data.results[0].address_components[1].short_name; 
-                            console.log(currentCity);
+                            //console.log(currentCity);
                         });
                     })
                     .catch(function (err) {
@@ -156,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         return;
                     }
                     response.json().then(function (data) {
-                        console.log(data);
+                        //console.log(data);
 
                         let link = document.querySelectorAll('.link');
                         link[0].parentElement.children[0].setAttribute("href", data.articles[0].url)
@@ -186,12 +189,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let cityName = document.getElementById("searchResultCity").value;
         console.log(cityName);//przykład
         getWeatherCityToday(cityName); //przykład
+        console.log(weather.lat, weather.lon)
+        //getWeather(weather.lat, weather.lon);
+        
+        //getWeather(50, 50);
     });}
 
     //Temperatura teraz
     function tempCityNow(){
         getCurrnetCity();
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&APPID=${openWeatherKey}&units=metric`)
+        let api2 = `http://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&APPID=${openWeatherKey}&units=metric`;
+        fetch(api2)
             .then(function (response) {
                 if (response.status !== 200) {
                     console.log('Looks like there was a problem. Status Code: ' +
@@ -200,15 +208,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 response.json().then(function (data) {
                     let temp = document.querySelector('.geo-btn');
-                    console.log(temp);
                     temp.innerText = `${currentCity} ${data.list[0].main.temp}°C`
-                    console.log(data.list[0].main.temp);
+                    weather.lat = data.city.coord.lat;
+                    weather.lon = data.city.coord.lon;
+                    console.log(weather.lat ,weather.lon)
+                    //console.log(data.list[0].main.temp);
                 });
             })
             .catch(function (err) {
                 console.log('Fetch Error :-S', err);
             });
-
     }
 
     tempCityNow();
