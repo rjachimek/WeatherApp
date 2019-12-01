@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
+    //hamburger menu 
+    let menu = document.querySelector('.hamburger');
+    menu.addEventListener('click', function() {
+      this.classList.toggle('hamburger--active');
+    }, false);
 
     //Pogoda na 5 dni w obecnej lokalizacji 
 

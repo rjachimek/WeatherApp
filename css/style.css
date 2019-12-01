@@ -2,61 +2,137 @@
 * {
     font-family: 'McLaren', cursive;
 }
-
 .bgrd {
     background: url("../img/tlo.jpeg");
 }
+.hamburger {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+   /* &:focus {
+        & > .hamburger__container {
+        box-shadow: 0 0 2px 2px #51a7e8;
+        }
+    }*/
+}
+
+.hamburger__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 35px;
+    height: 30px;
+}
+
+.hamburger__bars {
+    position: absolute;
+    width: 35px;
+    height: 2px;
+    background-color: #000;
+    transition: transform 220ms ease-in-out;
+   /* &amp:before, &amp:after {
+        display: block;
+        position: absolute;
+        width: 35px;
+        height: 2px;
+        background-color: #000;
+        content: '';
+    }
+    &amp:before {
+        top: -12px;
+        transition: top 100ms 250ms ease-in, transform 220ms ease-in-out;
+    }
+    &amp:after {
+        bottom: -12px;
+        transition: bottom 100ms 250ms ease-in, 
+        transform 220ms ease-in-out;
+    }*/
+}
+
+.hamburger--active {
+    .hamburger__bars {
+        transform: rotate(225deg);
+        transition: transform 220ms 120ms ease-in-out;
+        &amp:before {
+        top: 0;
+        transition: top 100ms ease-out;
+    }
+    &amp:after {
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 100ms ease-out, 
+        transform 220ms 120ms ease-in-out;
+    }
+    }
+}
+/*
+.hamburger, .hamburger__container {
+    &amp:focus {
+        outline: none;
+    }
+}*/
+
 
 /*---------------MENU----------*/
-li,a {
+/*odwiedzony link*/
+li,a:visited {
     font-weight: 500;
     font-size: 16px;
     color: white;
     text-decoration: none;
 }
+/*nieodwiedzony link*/
+li,a:link {
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+/*link po najechaniu kursorem*/
+li,a:hover {
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+/*fixed menu*/
 .navigation{
     z-index: 10000;
     position: fixed;
     width: 100%;
     top: 0px;
 }
-
 header {
     display: flex;
-    /*dopasowywanie położenia el po zmianie rozmiaru okna*/
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
-    background-color: black;
-    
+    background-color: black;    
 }
 
 .logo {
-    cursor: pointer;
-    /*znak łapki zamiast zwykłego kursora po najechaniu na obrazek*/
+    cursor: pointer; /*znak łapki zamiast zwykłego kursora po najechaniu na obrazek*/
     width: 60px;
 }
 
 .navbar {
-    list-style: none;
-    /*brak kropek w menu*/
+    list-style: none; /*brak kropek w menu*/
     background-color: #000000;
-    
-    /*NIE DZIAŁAAAAAAAAAAAAAAAAA*/
 }
 
 .navbar li {
-    display: inline-block;
-    /*orientacja pozioma menu*/
-    padding: 0px 20px;
-    /*odstepy*/
-    
+    display: inline-block; /*orientacja pozioma menu*/
+    padding: 0px 20px;/*odstepy*/  
 }
 
 .container {
-    /*background-color:gray;*/
-
     background-size: 100%;
+}
+.row{
+    margin:0;
+    padding:0;
 }
 /*---------------NEWS----------*/
 .carousel{
@@ -127,9 +203,6 @@ header {
     line-height: 40px;
     width: 80%;
 }
-
-
-
 /*---------------kafelki pogoda----------*/
 
 .carousel-item {
@@ -140,6 +213,7 @@ header {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color:#336666;
 }
 
 .fiveDays body {
@@ -157,7 +231,6 @@ header {
 .fiveDays .item {
     width: 220px;
     height: 400px;
-    margin: 10px;
     padding: 20px;
     border-radius: 30px;
     background-color: rgb(228, 222, 222);
@@ -248,4 +321,10 @@ header {
     transition: opacity .55s ease-in-out;
     -moz-transition: opacity .55s ease-in-out;
     -webkit-transition: opacity .55s ease-in-out;
+}
+/*---------------STOPKA----------*/
+footer{ 
+    text-align: center;
+    font-size:10px;
+    background-color:#336666;
 }

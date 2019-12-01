@@ -24,19 +24,27 @@
     <div class="container m-0 p-0 mw-100 bgrd">
         <!------------------------MENU--------------------------->
         <div class="navigation">
-        <header style="background-color: black">
-            <img class="logo" src="./img/logo.jpg" alt="logo">
-            <nav>
-                <!--sekcja str z odnośnikami do innych stron lub fragmentow strony-->
-                <ul class="navbar">
-                    <li><a href="index.html">Strona główna </a></li>
-                    <!--# oznacza default, jak jeszcze nie mamy linku-->
-                    <li><a href="#radar">Radar mapy</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
+            <header>
+                <img class="logo" src="./img/logo.jpg" alt="logo">
+                <nav>
+                    <!--sekcja str z odnośnikami do innych stron lub fragmentow strony-->
+                    <ul class="navbar">
+                        <li><a href="index.html">Strona główna</a></li>
+                        <li><a href="fivedays.html">Pogoda na najbliższe 5 dni</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </nav>
+                
+
+                <button class="hamburger" aria-label="navbar">
+                    <span class="hamburger__container" tabindex="-1">
+                    <span class="hamburger__bars"></span>
+                    </span>
+                </button>
+      
+      
+            </header>
+        </div>
         <!---------------POKAZ SLAJDÓW, NEWSY--------------------------->
         <div class="row">
             <div class="col-sm-6 mx-auto">
@@ -182,8 +190,11 @@
                 </div>
             </div>
         </div>
+        <footer>
+            Copyrights® 2019 Julia Bartkowiak, Radosław Jachimek, Maciej Szymczyk 
+        </footer>
     </div>
-
+  
     <script src="js/script.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
