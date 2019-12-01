@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
 
-        getWeather(latitude, longitude);
+        //getWeather(latitude, longitude);
+        getWeather(20, 20); // test zeby bylo widac rozncie xd
     }
 
     // BLAD
@@ -190,9 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(cityName);//przykład
         getWeatherCityToday(cityName); //przykład
         console.log(weather.lat, weather.lon)
-        //getWeather(weather.lat, weather.lon);
-        
-        //getWeather(50, 50);
+        getWeather(weather.lat, weather.lon);
     });}
 
     //Temperatura teraz
@@ -211,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     temp.innerText = `${currentCity} ${data.list[0].main.temp}°C`
                     weather.lat = data.city.coord.lat;
                     weather.lon = data.city.coord.lon;
-                    console.log(weather.lat ,weather.lon)
                     //console.log(data.list[0].main.temp);
                 });
             })
