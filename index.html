@@ -23,6 +23,7 @@
 <body>
     <div class="container m-0 p-0 mw-100 bgrd">
         <!------------------------MENU--------------------------->
+        <div class="navigation">
         <header style="background-color: black">
             <img class="logo" src="./img/logo.jpg" alt="logo">
             <nav>
@@ -31,11 +32,11 @@
                     <li><a href="index.html">Strona główna </a></li>
                     <!--# oznacza default, jak jeszcze nie mamy linku-->
                     <li><a href="#radar">Radar mapy</a></li>
-                    <li><a href="contact.html">Kontakt</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
-
+    </div>
         <!---------------POKAZ SLAJDÓW, NEWSY--------------------------->
         <div class="row">
             <div class="col-sm-6 mx-auto">
@@ -78,10 +79,10 @@
                 <form action="" class="form-search">
                     <input class="search-txt" type="text" name="" id="searchResultCity"
                         placeholder="Wpisz nazwę miejscowości">
-                    <a class="search-btn" href="#">
-                        <input type="submit">
+                    <button type="submit" class="search-btn" href="#">
+                       <!-- <input type="submit"> -->
                         <i class="fas fa-search"></i>
-                    </a>
+                    </button>
                 </form>
             </div>
         </div>

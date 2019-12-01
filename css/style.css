@@ -14,6 +14,12 @@ li,a {
     color: white;
     text-decoration: none;
 }
+.navigation{
+    z-index: 10000;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
 
 header {
     display: flex;
@@ -22,6 +28,7 @@ header {
     align-items: center;
     padding: 10px 10px;
     background-color: black;
+    
 }
 
 .logo {
@@ -34,7 +41,7 @@ header {
     list-style: none;
     /*brak kropek w menu*/
     background-color: #000000;
-    position: sticky;
+    
     /*NIE DZIAŁAAAAAAAAAAAAAAAAA*/
 }
 
@@ -43,6 +50,7 @@ header {
     /*orientacja pozioma menu*/
     padding: 0px 20px;
     /*odstepy*/
+    
 }
 
 .container {
@@ -50,7 +58,39 @@ header {
 
     background-size: 100%;
 }
+/*---------------NEWS----------*/
+.carousel{
+    padding-top: 80px;
+    margin-top: 20px;
+}
+.carousel-item{
+    object-fit: cover;
+    align-self: stretch;
+    width: 100%;
+    height: 500px;
+}
+.img-fluid{
+    object-fit: cover;
+    align-self: stretch;
+    width: 100%;
+    height: 500px;
 
+}
+@media (max-width: 800px){
+    .carousel-item{
+        object-fit: cover;
+        align-self: stretch;
+        width: 100%;
+        height: 100%;
+    }
+    .img-fluid{
+        object-fit: cover;
+        align-self: stretch;
+        width: 100%;
+        height: 100%;
+    
+    }
+}
 /*---------------POLE WYSZUKIWANIA----------*/
 .search-box {
     width: 350px;
@@ -58,6 +98,7 @@ header {
     height: 60px;
     border-radius: 60px;
     padding: 10px;
+    margin-top: 20px;
 }
 
 /*---------------PASEK WYSZUKIWANIA----------*/
@@ -89,6 +130,7 @@ header {
 
 
 
+/*---------------kafelki pogoda----------*/
 
 .carousel-item {
     width: 100%;
@@ -113,11 +155,97 @@ header {
 }
 
 .fiveDays .item {
-    width: 290px;
+    width: 220px;
     height: 400px;
     margin: 10px;
     padding: 20px;
     border-radius: 30px;
     background-color: rgb(228, 222, 222);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width:1240px) {
+    .fiveDays .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width:600px) {
+    .fiveDays .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/*---------------kontakt----------*/
+.contact-form{
+    
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #ffffff;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #0062cc;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+.contact__container__media div {
+    
+    padding-right: 5%;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.contact__container__media div i {
+    font-size: 90px;
+    opacity: 0.6;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+}
+
+.contact__container__media div i:hover {
+    opacity: 1.0;
+    transition: opacity .55s ease-in-out;
+    -moz-transition: opacity .55s ease-in-out;
+    -webkit-transition: opacity .55s ease-in-out;
 }

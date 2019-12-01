@@ -2,14 +2,23 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
     <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
-    <title>APLIKACJA POGODOWA</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/99b50a7804.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -27,13 +36,48 @@
                 </ul>
             </nav>
         </header>
+        <!------------------------Kontakt--------------------------->
+        <div class="container contact-form ">
+            <form method="post">
+                <h3>Kontakt</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="txtName" class="form-control" placeholder="Imie *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="txtEmail" class="form-control" placeholder="Email *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="txtPhone" class="form-control" placeholder="Telefon *" value="" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea name="txtMsg" class="form-control" placeholder="Twoja wiadomość *"
+                                style="width: 100%; height: 150px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" name="btnSubmit" class="btnContact" value="Wyślij" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+            <div class="contact__container__media list-group list-group list-group-horizontal justify-content-center">
+                <div><a href=""><i class="fab fa-facebook-square m text-center"></i></a></div>
+                <div><a href=""><i class="fab fa-twitter-square text-center "></i></a></div>
+                <div><a href=""><i class="fab fa-github-square text-center "></i></a></div>
+                <div><a href=""><i class="fab fa-linkedin text-center"></i></a></div>
+            </div>
+
+            </ul>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+    <script src="js/script.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 
