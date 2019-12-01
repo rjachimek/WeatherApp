@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+    
     <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -16,6 +16,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
 </head>
 
@@ -30,7 +31,7 @@
                     <li><a href="index.html">Strona główna </a></li>
                     <!--# oznacza default, jak jeszcze nie mamy linku-->
                     <li><a href="#radar">Radar mapy</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
@@ -41,18 +42,23 @@
                 <div id="slideshow" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href=""><img src="./img/burza-01.jpeg" class="img-fluid" , alt="..."></a>
+                            <a href="" class="link">
+                                <img src="./img/burza-01.jpeg" class="img-fluid" , alt="...">
+                            </a>
                             <p class="carousel-caption">Temat</p>
                         </div>
                         <div class="carousel-item">
-                            <a href=""><img src="./img/slonce-01.jpeg" class="img-fluid" , alt="..."></a>
+                            <a href="" class="link">
+                                <img src="./img/slonce-01.jpeg" class="img-fluid" , alt="...">
+                            </a>
                             <p class="carousel-caption">Temat</p>
                         </div>
                         <div class="carousel-item">
-                            <a href=""> <img src="./img/deszcz-01.jpeg" class="img-fluid" , alt="..."></a>
+                            <a href="" class="link">
+                                <img src="./img/deszcz-01.jpeg" class="img-fluid" , alt="...">
+                            </a>
                             <p class="carousel-caption">Temat</p>
                         </div>
-
                     </div>
                     <a class="carousel-control-prev" href="#slideshow" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -82,7 +88,7 @@
 
         <!---------------GEOLOKALIZACJA--------------------------->
         <div class="row">
-            <button type="button" class="btn btn-secondary my-3 mx-auto">Aktualna lokalizacja użytkownika</button>
+            <button type="button" class="btn btn-secondary my-3 mx-auto geo-btn">Aktualna lokalizacja użytkownika</button>
         </div>
 
         <!---------------POGODA NA NAJBLIŻSZYCH 5 DNI wer 2--------------------------->

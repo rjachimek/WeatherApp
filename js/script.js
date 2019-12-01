@@ -1,83 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    let id = 0;
-    const openWeatherKey = "6435a094b1838feb1771367559ced5f4";
-    const newsKey = "da4b99413d7b47c8b7ce89892570c2ae";
-    let currentCity = "Wroclaw";
-
-    //wyszukiwanie miasta po geolokalizacji
-    function getCurrnetCity() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyDjuFykfFmVZHNwMoQ2XJukoHlwCU7HJ6U";
-                fetch(url)
-                    .then(function (response) {
-                        if (response.status !== 200) {
-                            console.log('Looks like there was a problem. Status Code: ' +
-                                response.status);
-                            return;
-                        }
-                        response.json().then(function (data) {
-                            currentCity = data.results[0].address_components[1].short_name;
-                            console.log(currentCity);
-                        });
-                    })
-                    .catch(function (err) {
-                        console.log('Fetch Error :-S', err);
-                    });
-            });
-        }
-    }
-
-    //przykładowe temp na teraz z wyszukiwaniem miasta ( + wyświetlanie temp w konsoli)
-    function getWeatherCityToday(cityName) {
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
-            .then(function (response) {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' +
-                        response.status);
-                    return;
-                }
-                response.json().then(function (data) {
-                    console.log(data.list[0].main.temp);
-                });
-            })
-            .catch(function (err) {
-                console.log('Fetch Error :-S', err);
-            });
-    }
-
-    //Pobieranie oraz wyświetlanie newsów
-    function getNews() {
-        var req = new Request(`https://newsapi.org/v2/top-headlines?country=pl&apiKey=${newsKey}`);
-        fetch(req)
-            .then(
-                function (response) {
-                    if (response.status !== 200) {
-                        console.log('Looks like there was a problem. Status Code: ' +
-                            response.status);
-                        return;
-                    }
-                    response.json().then(function (data) {
-                        let img = document.querySelectorAll('.carousel-inner');
-                        img[0].children[0].setAttribute("src", data.articles[0].urlToImage);
-                        img[0].children[1].setAttribute("src", data.articles[1].urlToImage);
-                        img[0].children[2].setAttribute("src", data.articles[2].urlToImage);
-                    });
-                }
-            )
-            .catch(function (err) {
-                console.log('Fetch Error :-S', err);
-            });
-    }
-
-    //EventListner dla wyszukiwania miasta
-    document.querySelector('.search-box').addEventListener("submit", (e) => {
-        e.preventDefault();
-        let cityName = document.getElementById("searchResultCity").value;
-        console.log(cityName);
-        getWeatherCityToday(cityName); //przykład
-    });
 
 
     //Pogoda na 5 dni w obecnej lokalizacji 
@@ -148,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(function (data) {
                 for (let i = 0; i < 5; i++) {
                     weather.date[i] = data.list[i * 8].dt_txt; // list[0] - 1szy dzien, list[8] - 2gi dzien, list[16] - 3eci dzien, list[24],list[32]
-                    weather.temperature.value[i] = Math.floor(data.list[i * 8].main.temp - KELVIN); // zamiawst tutaj przeliczać można dodać &units=metric w zapytaniu api
+                    weather.temperature.value[i] = Math.floor(data.list[i * 8].main.temp - KELVIN); 
                     weather.description[i] = data.list[i * 8].weather[0].description;
                     weather.iconId[i] = data.list[i * 8].weather[0].icon;
                 }
@@ -174,7 +96,128 @@ document.addEventListener("DOMContentLoaded", function () {
     //TODO Wyświetlanie pogody na teraz z wyszukiwarki
 
 
-    
+    let id = 0;
+    const openWeatherKey = "6435a094b1838feb1771367559ced5f4";
+    const newsKey = "da4b99413d7b47c8b7ce89892570c2ae";
+    let currentCity = "Wroclaw";
+
+    //wyszukiwanie miasta po geolokalizacji
+    function getCurrnetCity() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyDjuFykfFmVZHNwMoQ2XJukoHlwCU7HJ6U";
+                fetch(url)
+                    .then(function (response) {
+                        if (response.status !== 200) {
+                            console.log('Looks like there was a problem. Status Code: ' +
+                                response.status);
+                            return;
+                        }
+                        response.json().then(function (data) {
+                            // działa tylko na adresie githun pages ze względów bezpieczenstwa
+                            // currentCity = data.results[0].address_components[1].short_name; 
+                            console.log(currentCity);
+                        });
+                    })
+                    .catch(function (err) {
+                        console.log('Fetch Error :-S', err);
+                    });
+            });
+        }
+    }
+
+    //przykładowe temp na teraz z wyszukiwaniem miasta ( + wyświetlanie temp w konsoli)
+    function getWeatherCityToday(cityName) {
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
+            .then(function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                response.json().then(function (data) {
+                    console.log(data.list[0].main.temp);
+                });
+            })
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+    }
+
+    //Pobieranie oraz wyświetlanie newsów
+    function getNews() {
+        var req = new Request(`https://newsapi.org/v2/top-headlines?country=pl&category=science&apiKey=${newsKey}`);
+        fetch(req)
+            .then(
+                function (response) {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function (data) {
+                        console.log(data);
+
+                        let link = document.querySelectorAll('.link');
+                        link[0].parentElement.children[0].setAttribute("href", data.articles[0].url)
+                        link[1].parentElement.children[0].setAttribute("href", data.articles[1].url)
+                        link[2].parentElement.children[0].setAttribute("href", data.articles[2].url)
+
+                        let title = document.querySelectorAll('.carousel-caption');
+                        title[0].innerText = data.articles[0].title;
+                        title[1].innerText = data.articles[1].title;
+                        title[2].innerText = data.articles[2].title;
+
+                        
+                    });
+                }
+            )
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+    }
+
+
+
+    //EventListner dla wyszukiwania miasta
+    function searchBox(){
+    document.querySelector('.search-box').addEventListener("submit", (e) => {
+        e.preventDefault();
+        let cityName = document.getElementById("searchResultCity").value;
+        console.log(cityName);//przykład
+        getWeatherCityToday(cityName); //przykład
+    });}
+
+    //Temperatura teraz
+    function tempCityNow(){
+        getCurrnetCity();
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&APPID=${openWeatherKey}&units=metric`)
+            .then(function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                response.json().then(function (data) {
+                    let temp = document.querySelector('.geo-btn');
+                    console.log(temp);
+                    temp.innerText = `${currentCity} ${data.list[0].main.temp}°C`
+                    console.log(data.list[0].main.temp);
+                });
+            })
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+
+    }
+
+    tempCityNow();
+    searchBox();
+    getNews();
+
+
+
+
 
 
 })
