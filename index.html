@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,98 +7,185 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+    
+    <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div id="item0" class="item">
-            <div class="app-date">
-                <p>Dzisiaj</p>
-            </div>
-            <div class="notification"></div>
-            <div class="weather-container">
-                <div class="weather-icon">
-                    <img src="./img/01d.png" alt="">
-                </div>
-                <div class="temperature-value">
-                    <p>- <span>°</span></p>
-                </div>
-                <div class="temperature-description">
-                    <p>-</p>
-                </div>
-            </div>
-        </div>
-        <div id="item1" class="item">
-            <div class="app-date">
-                <p>Jutro</p>
-            </div>
-            <div class="notification"></div>
-            <div class="weather-container">
-                <div class="weather-icon">
-                    <img src="./img/01d.png" alt="">
-                </div>
-                <div class="temperature-value">
-                    <p>- <span>°</span></p>
-                </div>
-                <div class="temperature-description">
-                    <p>-</p>
-                </div>
-            </div>
-        </div>
-        <div id="item2" class="item">
-            <div class="app-date">
-                <p>Dopisac zeby date samo wyswietlalo</p>
-            </div>
-            <div class="notification"></div>
-            <div class="weather-container">
-                <div class="weather-icon">
-                    <img src="./img/01d.png" alt="">
-                </div>
-                <div class="temperature-value">
-                    <p>- <span>°</span></p>
-                </div>
-                <div class="temperature-description">
-                    <p>-</p>
+    <div class="container m-0 p-0 mw-100 bgrd">
+        <!------------------------MENU--------------------------->
+        <header style="background-color: black">
+            <img class="logo" src="./img/logo.jpg" alt="logo">
+            <nav>
+                <!--sekcja str z odnośnikami do innych stron lub fragmentow strony-->
+                <ul class="navbar">
+                    <li><a href="index.html">Strona główna </a></li>
+                    <!--# oznacza default, jak jeszcze nie mamy linku-->
+                    <li><a href="#radar">Radar mapy</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!---------------POKAZ SLAJDÓW, NEWSY--------------------------->
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <div id="slideshow" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="" class="link">
+                                <img src="./img/burza-01.jpeg" class="img-fluid" , alt="...">
+                            </a>
+                            <p class="carousel-caption">Temat</p>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="" class="link">
+                                <img src="./img/slonce-01.jpeg" class="img-fluid" , alt="...">
+                            </a>
+                            <p class="carousel-caption">Temat</p>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="" class="link">
+                                <img src="./img/deszcz-01.jpeg" class="img-fluid" , alt="...">
+                            </a>
+                            <p class="carousel-caption">Temat</p>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#slideshow" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#slideshow" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
-        <div id="item3" class="item">
-            <div class="app-date">
-                <p>Data</p>
-            </div>
-            <div class="notification"></div>
-            <div class="weather-container">
-                <div class="weather-icon">
-                    <img src="./img/01d.png" alt="">
-                </div>
-                <div class="temperature-value">
-                    <p>- <span>°</span></p>
-                </div>
-                <div class="temperature-description">
-                    <p>-</p>
-                </div>
+
+        <!---------------WYSZUKIWANIE--------------------------->
+        <div class="row">
+            <div class="search-box mt-10 mb-10 mx-auto">
+                <form action="" class="form-search">
+                    <input class="search-txt" type="text" name="" id="searchResultCity"
+                        placeholder="Wpisz nazwę miejscowości">
+                    <a class="search-btn" href="#">
+                        <input type="submit">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </form>
             </div>
         </div>
-        <div id="item4" class="item">
-            <div class="app-date">
-                <p>Data</p>
-            </div>
-            <div class="notification"></div>
-            <div class="weather-container">
-                <div class="weather-icon">
-                    <img src="./img/01d.png" alt="">
+
+        <!---------------GEOLOKALIZACJA--------------------------->
+        <div class="row">
+            <button type="button" class="btn btn-secondary my-3 mx-auto geo-btn">Aktualna lokalizacja użytkownika</button>
+        </div>
+
+        <!---------------POGODA NA NAJBLIŻSZYCH 5 DNI wer 2--------------------------->
+        <div class="fiveDays">
+            <div class="container">
+                <div id="item0" class="item">
+                    <div class="app-date">
+                        <p>Dzisiaj</p>
+                    </div>
+                    <div class="notification"></div>
+                    <div class="weather-container">
+                        <div class="weather-icon">
+                            <img src="./img/01d.png" alt="">
+                        </div>
+                        <div class="temperature-value">
+                            <p>- <span>°</span></p>
+                        </div>
+                        <div class="temperature-description">
+                            <p>-</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="temperature-value">
-                    <p>- <span>°</span></p>
+                <div id="item1" class="item">
+                    <div class="app-date">
+                        <p>Jutro</p>
+                    </div>
+                    <div class="notification"></div>
+                    <div class="weather-container">
+                        <div class="weather-icon">
+                            <img src="./img/01d.png" alt="">
+                        </div>
+                        <div class="temperature-value">
+                            <p>- <span>°</span></p>
+                        </div>
+                        <div class="temperature-description">
+                            <p>-</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="temperature-description">
-                    <p>-</p>
+                <div id="item2" class="item">
+                    <div class="app-date">
+                        <p>Dopisac zeby date samo wyswietlalo</p>
+                    </div>
+                    <div class="notification"></div>
+                    <div class="weather-container">
+                        <div class="weather-icon">
+                            <img src="./img/01d.png" alt="">
+                        </div>
+                        <div class="temperature-value">
+                            <p>- <span>°</span></p>
+                        </div>
+                        <div class="temperature-description">
+                            <p>-</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="item3" class="item">
+                    <div class="app-date">
+                        <p>Data</p>
+                    </div>
+                    <div class="notification"></div>
+                    <div class="weather-container">
+                        <div class="weather-icon">
+                            <img src="./img/01d.png" alt="">
+                        </div>
+                        <div class="temperature-value">
+                            <p>- <span>°</span></p>
+                        </div>
+                        <div class="temperature-description">
+                            <p>-</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="item4" class="item">
+                    <div class="app-date">
+                        <p>Data</p>
+                    </div>
+                    <div class="notification"></div>
+                    <div class="weather-container">
+                        <div class="weather-icon">
+                            <img src="./img/01d.png" alt="">
+                        </div>
+                        <div class="temperature-value">
+                            <p>- <span>°</span></p>
+                        </div>
+                        <div class="temperature-description">
+                            <p>-</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
