@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // POBRANIE POGODY Z API
     function getWeather(latitude, longitude) {
-        let api = `http://api.openweathermap.org/data/2.5/forecast?lang=pl&lat=${latitude}&lon=${longitude}&appid=${key}`;
+        let api = `https://api.openweathermap.org/data/2.5/forecast?lang=pl&lat=${latitude}&lon=${longitude}&appid=${key}`;
         let day = 0;
 
         fetch(api)
