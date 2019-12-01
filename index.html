@@ -42,15 +42,15 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <a href=""><img src="./img/burza-01.jpeg" class="img-fluid" , alt="..."></a>
-                            <p></p>
+                            <p class="carousel-caption">Temat</p>
                         </div>
                         <div class="carousel-item">
                             <a href=""><img src="./img/slonce-01.jpeg" class="img-fluid" , alt="..."></a>
-                            <p></p>
+                            <p class="carousel-caption">Temat</p>
                         </div>
                         <div class="carousel-item">
                             <a href=""> <img src="./img/deszcz-01.jpeg" class="img-fluid" , alt="..."></a>
-                            <p></p>
+                            <p class="carousel-caption">Temat</p>
                         </div>
 
                     </div>
@@ -69,10 +69,14 @@
         <!---------------WYSZUKIWANIE--------------------------->
         <div class="row">
             <div class="search-box mt-10 mb-10 mx-auto">
-                <input class="search-txt" type="text" name="" placeholder="Wpisz nazwę miejscowości">
-                <a class="search-btn" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
+                <form action="" class="form-search">
+                    <input class="search-txt" type="text" name="" id="searchResultCity"
+                        placeholder="Wpisz nazwę miejscowości">
+                    <a class="search-btn" href="#">
+                        <input type="submit">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </form>
             </div>
         </div>
 

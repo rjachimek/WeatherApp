@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    //wyszukiwanie miasta ( + wyświetlanie temp w konsoli)
-    function getWeather(cityName) {
+    //przykładowe temp na teraz z wyszukiwaniem miasta ( + wyświetlanie temp w konsoli)
+    function getWeatherCityToday(cityName) {
         fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
             .then(function (response) {
                 if (response.status !== 200) {
@@ -74,15 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
     //EventListner dla wyszukiwania miasta
     document.querySelector('.search-box').addEventListener("submit", (e) => {
         e.preventDefault();
-        let cityName = document.getElementById("city").value;
+        let cityName = document.getElementById("searchResultCity").value;
         console.log(cityName);
-        getWeather(cityName);
+        getWeatherCityToday(cityName); //przykład
     });
-
-
-
-
-
 
 
     //Pogoda na 5 dni w obecnej lokalizacji 
