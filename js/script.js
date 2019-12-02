@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // POBRANIE POGODY Z API
     function getWeather(latitude, longitude) {
-        let api = `http://api.openweathermap.org/data/2.5/forecast?lang=pl&lat=${latitude}&lon=${longitude}&appid=${key}`;
+        let api = `https://api.openweathermap.org/data/2.5/forecast?lang=pl&lat=${latitude}&lon=${longitude}&appid=${key}`;
         let day = 0;
 
         fetch(api)
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //przykładowe temp na teraz z wyszukiwaniem miasta ( + wyświetlanie temp w konsoli)
     function getWeatherCityToday(cityName) {
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&APPID=${openWeatherKey}&units=metric`)
             .then(function (response) {
                 if (response.status !== 200) {
                     console.log('Looks like there was a problem. Status Code: ' +
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Temperatura teraz
     function tempCityNow(){
         getCurrnetCity();
-        let api2 = `http://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&APPID=${openWeatherKey}&units=metric`;
+        let api2 = `https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&APPID=${openWeatherKey}&units=metric`;
         fetch(api2)
             .then(function (response) {
                 if (response.status !== 200) {
@@ -224,6 +224,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
+      
     tempCityNow();
     searchBox();
     getNews();

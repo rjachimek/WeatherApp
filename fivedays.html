@@ -24,27 +24,23 @@
     <div class="container m-0 p-0 mw-100 bgrd">
         <!------------------------MENU--------------------------->
         <div class="navigation">
-            <header>
-                <img class="logo" src="./img/logo.jpg" alt="logo">
-                <nav>
-                    <!--sekcja str z odnośnikami do innych stron lub fragmentow strony-->
-                    <ul class="navbar">
-                        <li><a href="index.html">Strona główna</a></li>
-                        <li><a href="fivedays.html">Pogoda na najbliższe 5 dni</a></li>
-                        <li><a href="contact.html">Kontakt</a></li>
-                    </ul>
-                </nav>
-
-
-                <button class="hamburger" aria-label="navbar">
-                    <span class="hamburger__container" tabindex="-1">
-                        <span class="hamburger__bars"></span>
-                    </span>
-                </button>
-
-
-            </header>
-        </div>
+                <header>
+                    <img class="logo" src="./img/logo.jpg" alt="logo">
+                    <nav>
+                        <!--sekcja str z odnośnikami do innych stron lub fragmentow strony-->
+                        <ul class="navbar" id="myLinks">
+                            <li><a href="index.html">Strona główna</a></li>
+                            <li><a href="fivedays.html">Pogoda na najbliższe 5 dni</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
+                        </ul>
+                    </nav>
+    
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+    
+                </header>
+            </div>
         <!---------------POKAZ SLAJDÓW, NEWSY--------------------------->
         <div class="row">
             <div class="col-sm-6 mx-auto">

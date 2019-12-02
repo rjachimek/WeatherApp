@@ -1,3 +1,4 @@
+
 /*ustawienia ogólne*/
 * {
     font-family: 'McLaren', cursive;
@@ -8,7 +9,8 @@ body{
 .bgrd {
     background: url("../img/tlo.jpeg");
 }
-.hamburger {
+
+/* .hamburger {
     margin: 0;
     padding: 0;
     border: 0;
@@ -18,7 +20,7 @@ body{
         & > .hamburger__container {
         box-shadow: 0 0 2px 2px #51a7e8;
         }
-    }*/
+    }
 }
 
 .hamburger__container {
@@ -35,7 +37,7 @@ body{
     height: 2px;
     background-color: #000;
     transition: transform 220ms ease-in-out;
-   /* &amp:before, &amp:after {
+    &amp:before, &amp:after {
         display: block;
         position: absolute;
         width: 35px;
@@ -51,7 +53,7 @@ body{
         bottom: -12px;
         transition: bottom 100ms 250ms ease-in, 
         transform 220ms ease-in-out;
-    }*/
+    }
 }
 
 .hamburger--active {
@@ -70,12 +72,12 @@ body{
     }
     }
 }
-/*
+
 .hamburger, .hamburger__container {
     &amp:focus {
         outline: none;
     }
-}*/
+} */
 
 
 /*---------------MENU----------*/
@@ -106,6 +108,7 @@ li,a:hover {
     position: fixed;
     width: 100%;
     top: 0px;
+    
 }
 header {
     display: flex;
@@ -137,6 +140,53 @@ header {
     margin:0;
     padding:0;
 }
+
+.icon{
+    display: none;
+}
+
+@media (max-width: 800px){
+.navigation {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+  
+  
+  .navigation .navbar {
+    display: none;
+  }
+  
+  
+  .navigation a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  
+  .navigation a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .navigation a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  
+  .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+}
+
 /*---------------NEWS----------*/
 .carousel{
     padding-top: 80px;
