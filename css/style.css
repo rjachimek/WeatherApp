@@ -2,6 +2,9 @@
 * {
     font-family: 'McLaren', cursive;
 }
+body{
+    background-color: #336666;
+}
 .bgrd {
     background: url("../img/tlo.jpeg");
 }
@@ -237,7 +240,7 @@ header {
     font-size: 1.4rem;
 }
 
-@media screen and (max-width:1240px) {
+@media screen and (max-width:1280px) {
     .fiveDays .container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -321,6 +324,19 @@ header {
     transition: opacity .55s ease-in-out;
     -moz-transition: opacity .55s ease-in-out;
     -webkit-transition: opacity .55s ease-in-out;
+}
+
+@media (max-width: 1100px) {
+
+    .contact__container__media {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .contact__container__media div {
+        padding-right: 0px;
+        padding-top: 20px;
+        margin-bottom: 10px;
+    }
 }
 /*---------------STOPKA----------*/
 footer{ 

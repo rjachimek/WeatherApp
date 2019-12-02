@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const KELVIN = 273;
 
     // KLUCZ API
-    const key = '6435a094b1838feb1771367559ced5f4';
+    const key = '968f21f3c0df218e3d72d731eedcda52';
 
     // GEOLOKACJA
     if ('geolocation' in navigator) {
@@ -69,26 +69,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 return data;
             })
             .then(function (data) {
-                console.log(data);
                 for (let i = 0; i < 5; i++) {
                     let tempWeather = [];
-                    tempWeather[i] = data.list[i].dt_txt; // list[0] - 1szy dzien, list[8] - 2gi dzien, list[16] - 3eci dzien, list[24],list[32]
+                    tempWeather[i] = data.list[i * 8].dt_txt; // list[0] - 1szy dzien, list[8] - 2gi dzien, list[16] - 3eci dzien, list[24],list[32]
                     weather.date[i] = tempWeather[i].split(' '); // oddziela godzine od daty
-                    weather.temperature.value[i] = Math.floor(data.list[i].main.temp - KELVIN); 
-                    weather.description[i] = data.list[i].weather[0].description;
-                    weather.iconId[i] = data.list[i].weather[0].icon;
+                    weather.temperature.value[i] = Math.floor(data.list[i * 8].main.temp - KELVIN); 
+                    weather.description[i] = data.list[i * 8].weather[0].description;
+                    weather.iconId[i] = data.list[i * 8].weather[0].icon;
                 }
             })
             .then(function () {
                 displayWeather();
-                
             });
     }
+
     
     // WYSWIETLANIE
     function displayWeather() {
         for (let i = 0; i < 5; i++) {
-            dateElement[i].innerHTML = weather.date[i][1];
+            dateElement[i].innerHTML = weather.date[i][0];
             iconElement[i].innerHTML = `<img src="./img/${weather.iconId[i]}.png"/>`;
             tempElement[i].innerHTML = `${weather.temperature.value[i]}°<span>C</span>`;
             descElement[i].innerHTML = weather.description[i];
