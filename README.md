@@ -9,4 +9,4 @@ Simple website created during Coders Camp in three person group.
  * JS
  * Bootstrap
 
-![Main screenshot](ima/devices.png)
+![Main screenshot](img/devices.png)
